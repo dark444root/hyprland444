@@ -46,8 +46,8 @@ Configuración completa de **Hyprland** con aspecto tipo macOS, 5 temas intercam
 ## Instalación
 
 ```bash
-git clone https://github.com/TU-USUARIO/hyprland-dotfiles.git
-cd hyprland-dotfiles
+git clone https://github.com/dark444root/hyprland444.git
+cd hyprland444
 bash instalar.sh
 ```
 
