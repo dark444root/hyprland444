@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+*.log
+config/hypr/widget/iconos-bn/
+config/hypr/widget/miniaturas/
+config/hypr/widget/config.jsonc
+config/hypr/widget/style.css
+config/hypr/respaldo*/
