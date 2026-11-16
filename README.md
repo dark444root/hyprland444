@@ -237,3 +237,4 @@ hyprland-dotfiles/
 - Los fondos degradados y las fotos de ejemplo del widget se generaron para este proyecto. `ia-1.jpeg` e `ia-2.jpeg` fueron creados con IA.
 - Los temas `macos` y `windows` solo imitan el estilo visual. No están afiliados a Apple ni a Microsoft ni usan sus logotipos.
 # hyprland444
+# hyprland444
