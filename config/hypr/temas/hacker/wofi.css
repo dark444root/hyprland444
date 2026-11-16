@@ -1,0 +1,41 @@
+/* Wofi · Tema HACKER */
+* {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 14px;
+}
+window {
+    background-color: rgba(7, 4, 13, 0.94);
+    border: 1px solid #ff2a6d;
+    border-radius: 0;
+    box-shadow: 0 0 0 1px #05d9e8;
+}
+#outer-box {
+    padding: 14px;
+}
+#input {
+    margin-bottom: 12px;
+    padding: 10px 14px;
+    border: none;
+    border-bottom: 1px solid #05d9e8;
+    border-radius: 0;
+    background-color: #07040d;
+    color: #05d9e8;
+    caret-color: #05d9e8;
+}
+#input image { color: #05d9e8; }
+#inner-box, #scroll { background: transparent; }
+#entry {
+    padding: 6px 12px;
+    border-radius: 0;
+    border-left: 2px solid transparent;
+}
+#entry image { margin-right: 12px; }
+#entry:selected {
+    background: linear-gradient(90deg, #ff2a6d, #b967ff);
+    border-left: 2px solid #05d9e8;
+}
+#text { color: #c7b8e8; }
+#entry:selected #text {
+    color: #07040d;
+    font-weight: bold;
+}

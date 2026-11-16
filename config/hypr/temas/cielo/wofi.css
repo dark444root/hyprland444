@@ -1,0 +1,34 @@
+/* Wofi · Tema CIELO */
+* {
+    font-family: "Segoe UI", "Noto Sans", "Cantarell", sans-serif;
+    font-size: 13px;
+}
+window {
+    background-color: rgba(36, 36, 36, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 16px;
+}
+#outer-box {
+    padding: 24px 24px 16px 24px;
+}
+#input {
+    margin-bottom: 18px;
+    padding: 9px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    border-radius: 18px;
+    background-color: #1c1c1c;
+    color: #ffffff;
+    caret-color: #7fb4ff;
+}
+#input image { color: #c5c5c5; }
+#inner-box, #scroll { background: transparent; }
+#entry {
+    padding: 10px 8px;
+    margin: 2px;
+    border-radius: 6px;
+}
+#entry image { margin-right: 10px; }
+#entry:hover { background: rgba(255, 255, 255, 0.06); }
+#entry:selected { background: rgba(255, 255, 255, 0.10); }
+#text { color: #ffffff; }

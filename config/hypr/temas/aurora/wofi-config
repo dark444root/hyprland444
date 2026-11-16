@@ -1,0 +1,13 @@
+width=620
+height=470
+location=center
+show=drun
+prompt=¿Qué quieres abrir?
+allow_images=true
+image_size=30
+insensitive=true
+no_actions=true
+matching=fuzzy
+hide_scroll=true
+term=kitty
+key_expand=Tab

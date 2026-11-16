@@ -1,0 +1,153 @@
+// Waybar · Tema WINDOWS (barra de tareas abajo)
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 48,
+    "spacing": 4,
+    "modules-left": [
+        "custom/escritorios"
+    ],
+    "modules-center": [
+        "custom/inicio",
+        "custom/buscar",
+        "hyprland/workspaces",
+        "custom/minimizadas"
+    ],
+    "modules-right": [
+        "tray",
+        "network",
+        "pulseaudio",
+        "battery",
+        "clock",
+        "custom/mostrar"
+    ],
+    "custom/escritorios": {
+        "format": "  Escritorio {}",
+        "exec": "hyprctl activeworkspace -j | python3 -c 'import json,sys;print(json.load(sys.stdin)[\"id\"])'",
+        "interval": "once",
+        "signal": 9,
+        "on-click": "hyprctl dispatch workspace e+1",
+        "on-click-right": "hyprctl dispatch workspace e-1",
+        "tooltip-format": "Clic: siguiente escritorio · Clic derecho: anterior"
+    },
+    "custom/inicio": {
+        "format": "",
+        "tooltip-format": "Inicio (tecla Windows)",
+        "on-click": "bash ~/.config/hypr/scripts/menu-apps.sh",
+        "on-click-right": "bash ~/.config/hypr/scripts/menu-energia.sh"
+    },
+    "custom/buscar": {
+        "format": "",
+        "tooltip-format": "Buscar",
+        "on-click": "bash ~/.config/hypr/scripts/menu-apps.sh"
+    },
+    "hyprland/workspaces": {
+        "format": "{windows}",
+        "format-window-separator": "  ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<firefox.*>": "",
+            "class<.*[Ff]irefox.*>": "",
+            "class<kitty>": "",
+            "class<.*[Tt]erminal.*>": "",
+            "class<.*ghostty.*>": "",
+            "class<.*wezterm.*>": "",
+            "class<[Tt]hunar>": "",
+            "class<.*[Nn]autilus.*>": "",
+            "class<[Cc]ode.*>": "",
+            "class<.*[Cc]ursor.*>": "",
+            "class<jetbrains.*>": "",
+            "class<.*android-studio.*>": "",
+            "class<.*[Cc]hrom.*>": "",
+            "class<.*[Bb]rave.*>": "",
+            "class<.*[Ee]dge.*>": "",
+            "class<.*[Dd]iscord.*>": "",
+            "class<.*[Ss]potify.*>": "",
+            "class<.*[Tt]elegram.*>": "",
+            "class<.*(mpv|vlc).*>": "",
+            "class<.*libreoffice.*>": "",
+            "class<.*[Ss]team.*>": "",
+            "class<.*[Pp]ostman.*>": "",
+            "class<.*[Mm]ongo.*>": "",
+            "class<.*[Vv]irtual[Bb]ox.*>": "",
+            "class<.*[Bb]urp.*>": "",
+            "class<.*pavucontrol.*>": "",
+            "class<.*[Bb]lueman.*>": "",
+            "class<.*[Ii]mage.*|.*ristretto.*>": "",
+            "class<.*minecraft.*>": ""
+        },
+        "persistent-workspaces": {},
+        "show-special": false,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "active-only": false
+    },
+    "custom/minimizadas": {
+        "exec": "bash ~/.config/hypr/scripts/minimizadas-contador.sh",
+        "return-type": "json",
+        "interval": 60,
+        "signal": 8,
+        "on-click": "bash ~/.config/hypr/scripts/restaurar.sh",
+        "tooltip": true,
+        "on-click-right": "bash ~/.config/hypr/scripts/restaurar.sh --todas",
+        "max-length": 40
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format": "{essid} · {ipaddr} · {signalStrength}%",
+        "on-click": "kitty -e nmtui"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "tooltip-format": "Volumen {volume}%",
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+    "battery": {
+        "states": {
+            "warning": 25,
+            "critical": 12
+        },
+        "format": "{icon}",
+        "format-charging": " {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "{capacity}% · {timeTo}"
+    },
+    "clock": {
+        "format": "{:%H:%M\n%d/%m/%Y}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "locale": "es_MX.UTF-8",
+        "justify": "right",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "today": "<span background='#60cdff' color='#202020'><b>{}</b></span>"
+            }
+        }
+    },
+    "custom/mostrar": {
+        "format": " ",
+        "tooltip-format": "Mostrar escritorio",
+        "on-click": "bash ~/.config/hypr/scripts/minimizar-todo.sh"
+    }
+}

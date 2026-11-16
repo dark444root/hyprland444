@@ -1,0 +1,5 @@
+# Juegos del widget (se muestran los primeros 4)
+# Cámbialos con clic derecho en un icono, o Windows + Alt + J para elegir los 4
+minecraft-launcher
+steam
+Hollow Knight

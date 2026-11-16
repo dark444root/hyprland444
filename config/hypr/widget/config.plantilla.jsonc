@@ -1,0 +1,75 @@
+// Widgets de escritorio estilo macOS (lo genera widget.sh)
+{
+    "name": "widget",
+    "layer": "bottom",
+    "position": "top",
+    "exclusive": false,
+    "passthrough": false,
+    "height": 180,
+    "margin-top": 52,
+    "margin-left": __MARGEN__,
+    "margin-right": 30,
+    "spacing": 14,
+    "modules-right": [
+        "custom/foto",
+        "group/hora",
+        "group/clima"
+    ],
+    "custom/foto": {
+        "format": " ",
+        "tooltip-format": "Clic: cambiar foto",
+        "on-click": "bash ~/.config/hypr/scripts/widget-foto.sh"
+    },
+    "group/hora": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/dia",
+            "clock#hora",
+            "clock#fecha"
+        ]
+    },
+    "clock#hora": {
+        "format": "{:%H:%M}",
+        "interval": 10,
+        "tooltip": false
+    },
+    "clock#fecha": {
+        "format": "{:%d de %B}",
+        "locale": "es_MX.UTF-8",
+        "tooltip": false
+    },
+    "group/clima": {
+        "orientation": "vertical",
+        "modules": [
+            "custom/ciudad",
+            "custom/temp",
+            "custom/cielo",
+            "custom/rango"
+        ]
+    },
+    "custom/ciudad": {
+        "exec": "bash ~/.config/hypr/scripts/clima.sh ciudad",
+        "interval": 1800,
+        "tooltip": false
+    },
+    "custom/temp": {
+        "exec": "bash ~/.config/hypr/scripts/clima.sh temp",
+        "interval": 1800,
+        "tooltip": false
+    },
+    "custom/cielo": {
+        "exec": "bash ~/.config/hypr/scripts/clima.sh cielo",
+        "interval": 1800,
+        "tooltip": false
+    },
+    "custom/rango": {
+        "exec": "bash ~/.config/hypr/scripts/clima.sh rango",
+        "interval": 1800,
+        "tooltip": false
+    },
+    "custom/dia": {
+        "exec": "LC_TIME=es_MX.UTF-8 date +%A | tr '[:lower:]áéíóú' '[:upper:]ÁÉÍÓÚ'",
+        "interval": 60,
+        "tooltip": false
+    }
+}

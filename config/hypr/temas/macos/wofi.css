@@ -1,0 +1,27 @@
+/* Wofi · Tema MACOS (estilo Spotlight) */
+* {
+    font-family: "Inter", "Cantarell", "Noto Sans", sans-serif;
+    font-size: 15px;
+}
+window {
+    background-color: rgba(40, 40, 42, 0.92);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 16px;
+}
+#outer-box { padding: 10px; }
+#input {
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    border: none;
+    border-radius: 10px;
+    background: transparent;
+    color: #f5f5f7;
+    caret-color: #0a84ff;
+    font-size: 22px;
+}
+#input image { color: #a1a1a6; }
+#inner-box, #scroll { background: transparent; }
+#entry { padding: 7px 12px; border-radius: 8px; }
+#entry image { margin-right: 12px; }
+#entry:selected { background: #0a84ff; }
+#text { color: #f5f5f7; }

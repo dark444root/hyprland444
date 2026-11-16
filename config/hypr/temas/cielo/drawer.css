@@ -1,0 +1,81 @@
+/* Menú de apps estilo GNOME · tema cielo */
+* {
+    font-family: "Cantarell", "Noto Sans", sans-serif;
+}
+
+window {
+    background-color: rgba(16, 19, 28, 0.86);
+    color: #ffffff;
+}
+
+/* Buscador: píldora centrada arriba */
+entry {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: #ffffff;
+    caret-color: #7fb4ff;
+    border: 2px solid transparent;
+    border-radius: 999px;
+    padding: 10px 22px;
+    margin: 36px 0 22px 0;
+    min-width: 420px;
+    font-size: 16px;
+    box-shadow: none;
+}
+entry:focus {
+    border-color: #7fb4ff;
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+button, image {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+/* Cada app: icono grande con el nombre debajo, tarjeta redondeada */
+button {
+    color: #ffffff;
+    padding: 14px 10px;
+    margin: 6px;
+    border-radius: 18px;
+    font-size: 13px;
+}
+button:hover {
+    background-color: rgba(255, 255, 255, 0.10);
+}
+button:focus {
+    background-color: rgba(255, 255, 255, 0.14);
+    outline: none;
+}
+
+/* Categorías como botones discretos */
+#category-button {
+    margin: 0 4px;
+    padding: 6px 16px;
+    border-radius: 999px;
+    color: #c8c8c8;
+    font-size: 12px;
+}
+#category-button:hover, #category-button:checked {
+    background-color: #7fb4ff;
+    color: #202020;
+}
+
+/* Favoritas (clic derecho en una app para fijarla) */
+#pinned-box {
+    padding-bottom: 12px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+#files-box {
+    padding: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 16px;
+}
+
+#math-label {
+    font-weight: bold;
+    font-size: 18px;
+    color: #7fb4ff;
+}

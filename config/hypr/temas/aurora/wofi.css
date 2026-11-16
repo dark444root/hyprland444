@@ -1,0 +1,65 @@
+/* Wofi · Tema AURORA */
+* {
+    font-family: "JetBrains Mono", sans-serif;
+    font-size: 14px;
+}
+
+window {
+    background-color: rgba(10, 13, 28, 0.88);
+    border: 2px solid rgba(94, 242, 194, 0.55);
+    border-radius: 22px;
+}
+
+#outer-box {
+    padding: 18px;
+    background: transparent;
+}
+
+#input {
+    margin-bottom: 14px;
+    padding: 12px 18px;
+    border: 1px solid rgba(76, 201, 240, 0.35);
+    border-radius: 14px;
+    background-color: rgba(18, 23, 48, 0.95);
+    color: #e2e6ff;
+    caret-color: #5ef2c2;
+    font-size: 15px;
+}
+#input:focus {
+    border-color: #5ef2c2;
+    box-shadow: 0 0 0 2px rgba(94, 242, 194, 0.20);
+}
+#input image { color: #5ef2c2; }
+
+#inner-box, #scroll {
+    background: transparent;
+}
+
+#entry {
+    padding: 9px 14px;
+    margin: 2px 0;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    transition: all 120ms ease;
+}
+#entry image {
+    margin-right: 12px;
+}
+#entry:hover {
+    background: rgba(76, 201, 240, 0.08);
+}
+#entry:selected {
+    background: linear-gradient(90deg,
+        rgba(94, 242, 194, 0.28),
+        rgba(76, 201, 240, 0.20) 45%,
+        rgba(157, 124, 255, 0.24));
+    border: 1px solid rgba(94, 242, 194, 0.45);
+}
+
+#text {
+    color: #b8bfe6;
+}
+#entry:selected #text {
+    color: #ffffff;
+    font-weight: bold;
+}

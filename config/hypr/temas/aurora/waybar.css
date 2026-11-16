@@ -1,0 +1,168 @@
+/* Waybar · Tema AURORA */
+* {
+    font-family: "JetBrains Mono", "Font Awesome 6 Free", "Font Awesome 5 Free", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    border: none;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent;
+    color: #e2e6ff;
+}
+
+/* Tres "islas" de vidrio con borde que brilla en degradado */
+.modules-left,
+.modules-center,
+.modules-right {
+    background: rgba(10, 13, 28, 0.80);
+    border-radius: 19px;
+    padding: 0 6px;
+    border: 1px solid rgba(76, 201, 240, 0.22);
+    box-shadow: inset 0 -2px 0 rgba(94, 242, 194, 0.35);
+}
+
+/* Botón lanzador: copo de nieve con degradado aurora */
+#custom-launcher {
+    font-size: 16px;
+    color: #0a0d1c;
+    background: linear-gradient(135deg, #5ef2c2, #4cc9f0 50%, #9d7cff);
+    border-radius: 14px;
+    margin: 5px 4px 5px 0;
+    padding: 0 12px;
+}
+#custom-launcher:hover {
+    background: linear-gradient(135deg, #9d7cff, #ff7ac6);
+}
+
+/* Escritorios: el activo se estira como una píldora brillante */
+#workspaces {
+    margin: 0 4px;
+}
+#workspaces button {
+    color: #4a5280;
+    padding: 0 5px;
+    margin: 7px 2px;
+    min-width: 12px;
+    background: transparent;
+    border-radius: 12px;
+    font-size: 10px;
+    transition: all 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+#workspaces button.active {
+    color: #0a0d1c;
+    min-width: 34px;
+    background: linear-gradient(90deg, #5ef2c2, #4cc9f0);
+}
+#workspaces button.urgent {
+    color: #ff5f87;
+}
+#workspaces button:hover {
+    color: #e2e6ff;
+    background: rgba(157, 124, 255, 0.25);
+    box-shadow: none;
+}
+
+#window {
+    color: #8a93c2;
+    padding: 0 12px 0 6px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+/* Reloj central */
+#clock {
+    color: #e2e6ff;
+    padding: 0 16px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+#tray, #cpu, #memory, #temperature,
+#pulseaudio, #backlight, #network, #bluetooth, #battery {
+    padding: 0 9px;
+}
+
+#cpu         { color: #5ef2c2; }
+#memory      { color: #4cc9f0; }
+#temperature { color: #ffc777; }
+#temperature.critical { color: #ff5f87; }
+#pulseaudio  { color: #9d7cff; }
+#pulseaudio.muted { color: #4a5280; }
+#backlight   { color: #ffc777; }
+#network     { color: #4cc9f0; }
+#network.disconnected { color: #ff5f87; }
+#bluetooth   { color: #6c8cff; }
+#battery     { color: #5ef2c2; }
+#battery.charging { color: #ffc777; }
+#battery.warning:not(.charging) { color: #ffc777; }
+#battery.critical:not(.charging) {
+    color: #ff5f87;
+    animation: latido 0.8s ease-in-out infinite alternate;
+}
+@keyframes latido {
+    to { color: #0a0d1c; background: #ff5f87; border-radius: 12px; }
+}
+
+#custom-power {
+    color: #0a0d1c;
+    background: linear-gradient(135deg, #ff7ac6, #ff5f87);
+    border-radius: 14px;
+    margin: 5px 0 5px 4px;
+    padding: 0 12px;
+}
+#custom-power:hover {
+    background: linear-gradient(135deg, #ffc777, #ff7ac6);
+}
+
+tooltip {
+    background: rgba(10, 13, 28, 0.95);
+    border: 1px solid #5ef2c2;
+    border-radius: 12px;
+}
+tooltip label {
+    color: #e2e6ff;
+    padding: 4px;
+}
+
+/* Barra de ventanas abiertas */
+#taskbar {
+    margin: 0 4px 0 2px;
+}
+#taskbar button {
+    padding: 0 7px;
+    margin: 5px 1px;
+    border-radius: 12px;
+    background: transparent;
+    border-bottom: 2px solid transparent;
+    transition: all 200ms ease;
+}
+#taskbar button.active {
+    background: rgba(94, 242, 194, 0.14);
+    border-bottom: 2px solid #5ef2c2;
+}
+#taskbar button.minimized {
+    opacity: 0.4;
+}
+#taskbar button:hover {
+    background: rgba(255, 95, 135, 0.18);
+    border-bottom: 2px solid #ff5f87;
+}
+
+/* Contador de minimizadas */
+#custom-minimizadas {
+    padding: 0 12px;
+    margin: 6px 4px;
+    border-radius: 12px;
+}
+#custom-minimizadas.vacio {
+    color: #4a5280;
+}
+#custom-minimizadas.hay {
+    color: #0a0d1c;
+    background: #febc2e;
+}
+#custom-minimizadas.hay:hover {
+    background: #ffd36b;
+}

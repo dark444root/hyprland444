@@ -1,0 +1,7 @@
+# Apps del widget (se muestran las primeras 4)
+# Una por línea: nombre del .desktop o parte de él (ej. spotify, discord, steam, postman)
+# Después de editar: Windows + Alt + W dos veces
+google-chrome
+kitty
+thunar
+code

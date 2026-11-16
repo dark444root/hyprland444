@@ -1,0 +1,192 @@
+// Waybar · Tema AURORA
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+    "margin-top": 10,
+    "margin-left": 14,
+    "margin-right": 14,
+    "spacing": 8,
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces",
+        "custom/minimizadas"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "tray",
+        "group/sistema",
+        "pulseaudio",
+        "backlight",
+        "network",
+        "bluetooth",
+        "battery",
+        "custom/power"
+    ],
+    "custom/launcher": {
+        "format": "",
+        "tooltip-format": "Aplicaciones (tecla Windows)",
+        "on-click": "bash ~/.config/hypr/scripts/menu-apps.sh",
+        "on-click-right": "pkill wofi || wofi --show run"
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}{windows}",
+        "format-window-separator": " ",
+        "window-rewrite-default": " ",
+        "window-rewrite": {
+            "class<firefox.*>": " ",
+            "class<.*[Ff]irefox.*>": " ",
+            "class<kitty>": " ",
+            "class<.*[Tt]erminal.*>": " ",
+            "class<.*ghostty.*>": " ",
+            "class<.*wezterm.*>": " ",
+            "class<[Tt]hunar>": " ",
+            "class<.*[Nn]autilus.*>": " ",
+            "class<[Cc]ode.*>": " ",
+            "class<.*[Cc]ursor.*>": " ",
+            "class<jetbrains.*>": " ",
+            "class<.*android-studio.*>": " ",
+            "class<.*[Cc]hrom.*>": " ",
+            "class<.*[Bb]rave.*>": " ",
+            "class<.*[Ee]dge.*>": " ",
+            "class<.*[Dd]iscord.*>": " ",
+            "class<.*[Ss]potify.*>": " ",
+            "class<.*[Tt]elegram.*>": " ",
+            "class<.*(mpv|vlc).*>": " ",
+            "class<.*libreoffice.*>": " ",
+            "class<.*[Ss]team.*>": " ",
+            "class<.*[Pp]ostman.*>": " ",
+            "class<.*[Mm]ongo.*>": " ",
+            "class<.*[Vv]irtual[Bb]ox.*>": " ",
+            "class<.*[Bb]urp.*>": " ",
+            "class<.*pavucontrol.*>": " ",
+            "class<.*[Bb]lueman.*>": " ",
+            "class<.*[Ii]mage.*|.*ristretto.*>": " ",
+            "class<.*minecraft.*>": " "
+        },
+        "format-icons": {
+            "active": "",
+            "urgent": "",
+            "empty": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 5
+        },
+        "show-special": false,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "clock": {
+        "format": "  {:%H:%M}",
+        "format-alt": "  {:%A %d de %B}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "locale": "es_MX.UTF-8",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "months": "<span color='#5ef2c2'><b>{}</b></span>",
+                "weekdays": "<span color='#9d7cff'><b>{}</b></span>",
+                "today": "<span color='#ff7ac6'><b><u>{}</u></b></span>"
+            }
+        }
+    },
+    "group/sistema": {
+        "orientation": "horizontal",
+        "drawer": {
+            "transition-duration": 400,
+            "children-class": "oculto",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "cpu",
+            "memory",
+            "temperature"
+        ]
+    },
+    "cpu": {
+        "format": "  {usage}%",
+        "interval": 5,
+        "on-click": "kitty -e btop"
+    },
+    "memory": {
+        "format": "  {percentage}%",
+        "interval": 10,
+        "tooltip-format": "{used:0.1f} / {total:0.1f} GiB"
+    },
+    "temperature": {
+        "format": "  {temperatureC}°",
+        "critical-threshold": 85
+    },
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "  mudo",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+        "scroll-step": 5
+    },
+    "backlight": {
+        "format": "  {percent}%",
+        "on-scroll-up": "brightnessctl s 5%+",
+        "on-scroll-down": "brightnessctl s 5%-"
+    },
+    "network": {
+        "format-wifi": "  {essid}",
+        "format-ethernet": "  cable",
+        "format-disconnected": "  sin red",
+        "tooltip-format": "{ifname} · {ipaddr} · {signalStrength}%",
+        "max-length": 22,
+        "on-click": "kitty -e nmtui"
+    },
+    "bluetooth": {
+        "format": "",
+        "format-connected": "  {device_alias}",
+        "format-disabled": "",
+        "on-click": "blueman-manager"
+    },
+    "battery": {
+        "states": {
+            "warning": 25,
+            "critical": 12
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "{timeTo}"
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip-format": "Energía (Windows + X)",
+        "on-click": "bash ~/.config/hypr/scripts/menu-energia.sh"
+    },
+    "custom/minimizadas": {
+        "exec": "bash ~/.config/hypr/scripts/minimizadas-contador.sh",
+        "return-type": "json",
+        "interval": 60,
+        "signal": 8,
+        "on-click": "bash ~/.config/hypr/scripts/restaurar.sh",
+        "tooltip": true,
+        "on-click-right": "bash ~/.config/hypr/scripts/restaurar.sh --todas",
+        "max-length": 40
+    }
+}

@@ -1,0 +1,41 @@
+/* Menús de Wi-Fi y Bluetooth estilo macOS.
+   La ventana ocupa toda la pantalla pero es transparente: tocar fuera del menú lo cierra. */
+configuration {
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    font: "Inter 11";
+    hover-select: true;
+    me-select-entry: "";
+    me-accept-entry: "MousePrimary";
+    kb-cancel: "Escape,MousePrimary,MouseSecondary,MouseMiddle";
+}
+* { background-color: transparent; text-color: #f5f5f7; }
+window {
+    fullscreen: true;
+    transparency: "real";
+    background-color: transparent;
+    padding: 40px 14px 0px 0px;
+    children: [ fila ];
+}
+fila { orientation: horizontal; children: [ relleno, columna ]; }
+relleno { expand: true; }
+columna { orientation: vertical; expand: false; width: 340px; children: [ mainbox, relleno2 ]; }
+relleno2 { expand: true; }
+mainbox {
+    expand: false;
+    children: [ inputbar, listview ];
+    spacing: 6px;
+    padding: 8px;
+    background-color: rgba(38, 38, 42, 94%);
+    border: 1px;
+    border-color: rgba(255, 255, 255, 14%);
+    border-radius: 14px;
+}
+inputbar { children: [ prompt ]; padding: 6px 10px; }
+prompt { font: "Inter Bold 12"; }
+listview { lines: 8; dynamic: false; scrollbar: false; spacing: 2px; fixed-height: true; expand: false; }
+element { padding: 8px 10px; spacing: 10px; border-radius: 8px; }
+element selected { background-color: #0a84ff; }
+element-icon { size: 20px; }
+element-text { vertical-align: 0.5; }
+entry { placeholder: "Contraseña"; }

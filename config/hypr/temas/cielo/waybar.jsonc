@@ -1,0 +1,144 @@
+// Waybar · Tema CIELO (dock flotante)
+{
+    "layer": "top",
+    "position": "bottom",
+    "height": 50,
+    "margin-bottom": 10,
+    "margin-left": 14,
+    "margin-right": 14,
+    "spacing": 6,
+    "modules-left": [
+        "clock#fecha",
+        "tray"
+    ],
+    "modules-center": [
+        "custom/inicio",
+        "hyprland/workspaces",
+        "custom/minimizadas"
+    ],
+    "modules-right": [
+        "network",
+        "pulseaudio",
+        "battery",
+        "clock",
+        "custom/power"
+    ],
+    "clock#fecha": {
+        "format": "{:%a %d %b}",
+        "locale": "es_MX.UTF-8",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode": "month",
+            "format": {
+                "today": "<span background='#7fb4ff' color='#10131c'><b>{}</b></span>"
+            }
+        }
+    },
+    "custom/inicio": {
+        "format": "",
+        "tooltip-format": "Aplicaciones (tecla Windows)",
+        "on-click": "bash ~/.config/hypr/scripts/menu-apps.sh",
+        "on-click-right": "bash ~/.config/hypr/scripts/menu-energia.sh"
+    },
+    "hyprland/workspaces": {
+        "format": "{windows}",
+        "format-window-separator": "  ",
+        "window-rewrite-default": "",
+        "window-rewrite": {
+            "class<firefox.*>": "",
+            "class<.*[Ff]irefox.*>": "",
+            "class<kitty>": "",
+            "class<.*[Tt]erminal.*>": "",
+            "class<.*ghostty.*>": "",
+            "class<.*wezterm.*>": "",
+            "class<[Tt]hunar>": "",
+            "class<.*[Nn]autilus.*>": "",
+            "class<[Cc]ode.*>": "",
+            "class<.*[Cc]ursor.*>": "",
+            "class<jetbrains.*>": "",
+            "class<.*android-studio.*>": "",
+            "class<.*[Cc]hrom.*>": "",
+            "class<.*[Bb]rave.*>": "",
+            "class<.*[Ee]dge.*>": "",
+            "class<.*[Dd]iscord.*>": "",
+            "class<.*[Ss]potify.*>": "",
+            "class<.*[Tt]elegram.*>": "",
+            "class<.*(mpv|vlc).*>": "",
+            "class<.*libreoffice.*>": "",
+            "class<.*[Ss]team.*>": "",
+            "class<.*[Pp]ostman.*>": "",
+            "class<.*[Mm]ongo.*>": "",
+            "class<.*[Vv]irtual[Bb]ox.*>": "",
+            "class<.*[Bb]urp.*>": "",
+            "class<.*pavucontrol.*>": "",
+            "class<.*[Bb]lueman.*>": "",
+            "class<.*[Ii]mage.*|.*ristretto.*>": "",
+            "class<.*minecraft.*>": ""
+        },
+        "persistent-workspaces": {},
+        "show-special": false,
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1",
+        "active-only": false
+    },
+    "custom/minimizadas": {
+        "exec": "bash ~/.config/hypr/scripts/minimizadas-contador.sh",
+        "return-type": "json",
+        "interval": 60,
+        "signal": 8,
+        "on-click": "bash ~/.config/hypr/scripts/restaurar.sh",
+        "tooltip": true,
+        "on-click-right": "bash ~/.config/hypr/scripts/restaurar.sh --todas",
+        "max-length": 40
+    },
+    "tray": {
+        "icon-size": 16,
+        "spacing": 10
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "",
+        "format-disconnected": "",
+        "tooltip-format": "{essid} · {ipaddr} · {signalStrength}%",
+        "on-click": "kitty -e nmtui"
+    },
+    "pulseaudio": {
+        "format": "{icon}",
+        "format-muted": "",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "tooltip-format": "Volumen {volume}%",
+        "on-click": "pavucontrol",
+        "scroll-step": 5
+    },
+    "battery": {
+        "states": {
+            "warning": 25,
+            "critical": 12
+        },
+        "format": "{icon}",
+        "format-charging": " {icon}",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "tooltip-format": "{capacity}% · {timeTo}"
+    },
+    "clock": {
+        "format": "{:%H:%M}",
+        "tooltip": false
+    },
+    "custom/power": {
+        "format": "",
+        "tooltip-format": "Energía (Windows + X)",
+        "on-click": "bash ~/.config/hypr/scripts/menu-energia.sh"
+    }
+}
